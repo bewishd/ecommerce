@@ -1,35 +1,142 @@
-<!DOCTYPE html>
 {% load static %}
-<html lang="en" dir="ltr">
+<!doctype html>
+<html lang="zxx">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>LazyCoder || sumit</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Projectables - About Us </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="static/img/favicon.ico">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/css/flaticon.css">
+    <link rel="stylesheet" href="static/css/slicknav.css">
+    <link rel="stylesheet" href="static/css/animate.min.css">
+    <link rel="stylesheet" href="static/css/magnific-popup.css">
+    <link rel="stylesheet" href="static/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="static/css/themify-icons.css">
+    <link rel="stylesheet" href="static/css/slick.css">
+    <link rel="stylesheet" href="static/css/nice-select.css">
+    <link rel="stylesheet" href="static/css/style.css">
 
-  <title>sumit</title>
-  <style media="screen">
-    .footer{
-      position: fixed;
-    }
-  </style>
+    <!-- CSS here -->
 </head>
 
-<body style="background-color: #B3E5FC;">
-  {%if request.user.is_authenticated%}
-    {% include "ecom/customer_navbar.html" %}
-  {%else%}
+<body>
+
     {% include "ecom/navbar.html" %}
-  {%endif%}
-  <br><br><br>
-<h3 style="text-align:center;">“I don’t create companies for the sake of creating companies, but to get things done.” </h3>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  {% include "ecom/footer.html" %}
+
+
+  <!-- slider Area Start-->
+  <div class="slider-area ">
+    <!-- Mobile Menu -->
+    <div class="single-slider slider-height2 d-flex align-items-center" data-background="static/img/hero/category.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center">
+                        <h2>About</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- slider Area End-->
+
+    <!-- product list part start-->
+    <section class="about_us padding_top">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="about_us_content">
+                        <h5>Our Mission</h5>
+                        <h3>The purpose of this user-friendly project is to build a platform to showcase and sell DIY projects of various genres and also create a community of people with similar ideas and interests, where they can communicate with one another.</h3>
+                        <div class="about_us_video">
+                            <img src="static/img/about_us_video.png" alt="#" class="img-fluid">
+                            <a class="about_video_icon popup-youtube" href="https://www.youtube.com/watch?v=DWHB6nTyKDI"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- product list part end-->
+
+    <!-- feature part here -->
+    <section class="feature_part section_padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single_feature_part">
+                        <img src="static/img/icon/feature_icon_1.svg" alt="#">
+                        <h4>Credit Card Support</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single_feature_part">
+                        <img src="static/img/icon/feature_icon_2.svg" alt="#">
+                        <h4>Online Order</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single_feature_part">
+                        <img src="static/img/icon/feature_icon_3.svg" alt="#">
+                        <h4>Free Delivery</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single_feature_part">
+                        <img src="static/img/icon/feature_icon_4.svg" alt="#">
+                        <h4>Product with Gift</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- feature part end -->
+    {% include 'ecom/footer.html' %}
+
+<!-- JS here -->
+
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="./static/js/vendor/modernizr-3.5.0.min.js"></script>
+
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="./static/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="./static/js/popper.min.js"></script>
+    <script src="./static/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="./static/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="./static/js/owl.carousel.min.js"></script>
+    <script src="./static/js/slick.min.js"></script>
+
+    <!-- One Page, Animated-HeadLin -->
+    <script src="./static/js/wow.min.js"></script>
+    <script src="./static/js/animated.headline.js"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="./static/js/jquery.scrollUp.min.js"></script>
+    <script src="./static/js/jquery.nice-select.min.js"></script>
+    <script src="./static/js/jquery.sticky.js"></script>
+    <script src="./static/js/jquery.magnific-popup.js"></script>
+
+    <!-- contact js -->
+    <script src="./static/js/contact.js"></script>
+    <script src="./static/js/jquery.form.js"></script>
+    <script src="./static/js/jquery.validate.min.js"></script>
+    <script src="./static/js/mail-script.js"></script>
+    <script src="./static/js/jquery.ajaxchimp.min.js"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="./static/js/plugins.js"></script>
+    <script src="./static/js/main.js"></script>
+
 </body>
-<!--
-developed By : sumit kumar
-facebook : fb.com/sumit.luv
-youtube : youtube.com/lazycoders
--->
 
 </html>

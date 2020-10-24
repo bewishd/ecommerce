@@ -1,180 +1,131 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="zxx">
 {% load widget_tweaks %}
-<html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
-    <title></title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Projectables - Sign Up</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="static/img/favicon.ico">
 
+    <!-- CSS here -->
+        <link rel="stylesheet" href="static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="static/css/flaticon.css">
+        <link rel="stylesheet" href="static/css/slicknav.css">
+        <link rel="stylesheet" href="static/css/animate.min.css">
+        <link rel="stylesheet" href="static/css/magnific-popup.css">
+        <link rel="stylesheet" href="static/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="static/css/themify-icons.css">
+        <link rel="stylesheet" href="static/css/slick.css">
+        <link rel="stylesheet" href="static/css/nice-select.css">
+        <link rel="stylesheet" href="static/css/style.css">
+</head>
 
+<body>
 
+    {% include 'ecom/navbar.html' %}
 
-    <style media="screen">
-      body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background: linear-gradient(to right, #b92b27, #1565c0)
-}
-
-.box {
-    width: 500px;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background: #191919;
-    ;
-    text-align: center;
-    transition: 0.25s;
-    margin-top: 100px
-}
-
-.box input[type="text"],
-.box input[type="password"] {
-    border: 0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #3498db;
-    padding: 10px 10px;
-    width: 250px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s
-}
-
-.box h1 {
-    color: white;
-    text-transform: uppercase;
-    font-weight: 500
-}
-
-.box input[type="text"]:focus,
-.box input[type="password"]:focus {
-    width: 300px;
-    border-color: #2ecc71
-}
-
-.box input[type="submit"] {
-    border: 0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #2ecc71;
-    padding: 14px 40px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-    cursor: pointer
-}
-
-.box input[type="submit"]:hover {
-    background: #2ecc71
-}
-
-.forgot {
-    text-decoration: underline
-}
-
-ul.social-network {
-    list-style: none;
-    display: inline;
-    margin-left: 0 !important;
-    padding: 0
-}
-
-ul.social-network li {
-    display: inline;
-    margin: 0 5px
-}
-
-.social-network a.icoFacebook:hover {
-    background-color: #3B5998
-}
-
-.social-network a.icoTwitter:hover {
-    background-color: #33ccff
-}
-
-.social-network a.icoGoogle:hover {
-    background-color: #BD3518
-}
-
-.social-network a.icoFacebook:hover i,
-.social-network a.icoTwitter:hover i,
-.social-network a.icoGoogle:hover i {
-    color: #fff
-}
-
-a.socialIcon:hover,
-.socialHoverClass {
-    color: #44BCDD
-}
-
-.social-circle li a {
-    display: inline-block;
-    position: relative;
-    margin: 0 auto 0 auto;
-    border-radius: 50%;
-    text-align: center;
-    width: 50px;
-    height: 50px;
-    font-size: 20px
-}
-
-.social-circle li i {
-    margin: 0;
-    line-height: 50px;
-    text-align: center
-}
-
-.social-circle li a:hover i,
-.triggeredHover {
-    transform: rotate(360deg);
-    transition: all 0.2s
-}
-
-.social-circle i {
-    color: #fff;
-    transition: all 0.8s;
-    transition: all 0.8s
-}
-    </style>
-  </head>
-  <body>
-    {% include "ecom/navbar.html" %}
-    <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <form class="box" method="post" enctype="multipart/form-data">
-                  {% csrf_token %}
-                    <h1>CUSTOMER SIGNUP</h1>
-                    <p class="text-muted"> Please enter your details to create account !</p>
-                      {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
-                        {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
-                          {% render_field userForm.username class="form-control" placeholder="Username" %}
-                            {% render_field userForm.password class="form-control" placeholder="Password" %}
-                              {% render_field customerForm.address class="form-control" placeholder="Address" %}
-                                {% render_field customerForm.mobile class="form-control" placeholder="Mobile" %}
-                                  {% render_field customerForm.profile_pic class="form-control" placeholder="Profile pic" %}
-                  
-                     <input type="submit" name="" value="Create">
-
-                </form>
+    <!-- slider Area Start-->
+    <div class="slider-area ">
+        <!-- Mobile Menu -->
+        <div class="single-slider slider-height2 d-flex align-items-center" data-background="static/img/hero/category.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2>Login</h2>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br>
-{% include "ecom/footer.html" %}
-  </body>
+    <!-- slider Area End-->
+
+    <!--================login_part Area =================-->
+    <section class="login_part section_padding ">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- <div class="col-lg-6 col-md-6">
+                    <div class="login_part_text text-center">
+                        <div class="login_part_text_iner">
+                            <h2>New to our Shop?</h2>
+                            <p>There are advances being made in science and technology
+                                everyday, and a good example of this is the</p>
+                            <a href="#" class="btn_3">Create an Account</a>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="login_part_form">
+                        <div class="login_part_form_iner">
+                            <h3>Sign up <br>
+                                Hurry Now</h3>
+                            <form class="row contact_form" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <!-- <h1>CUSTOMER SIGNUP</h1> -->
+                                <p class="text-muted"> Please enter your details to create account !</p>
+                                {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
+                                    {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
+                                    {% render_field userForm.username class="form-control" placeholder="Username" %}
+                                        {% render_field userForm.password class="form-control" placeholder="Password" %}
+                                        {% render_field customerForm.address class="form-control" placeholder="Address" %}
+                                            {% render_field customerForm.mobile class="form-control" placeholder="Mobile" %}
+                                            {% render_field customerForm.profile_pic class="form-control" placeholder="Profile pic" %}
+                            
+                                <input type="submit" name="" value="Create">
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================login_part end =================-->
+
+    {% include 'ecom/footer.html' %}
+
+<!-- JS here -->
+
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="./static/js/vendor/modernizr-3.5.0.min.js"></script>
+
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="./static/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="./static/js/popper.min.js"></script>
+    <script src="./static/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="./static/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="./static/js/owl.carousel.min.js"></script>
+    <script src="./static/js/slick.min.js"></script>
+
+    <!-- One Page, Animated-HeadLin -->
+    <script src="./static/js/wow.min.js"></script>
+    <script src="./static/js/animated.headline.js"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="./static/js/jquery.scrollUp.min.js"></script>
+    <script src="./static/js/jquery.nice-select.min.js"></script>
+    <script src="./static/js/jquery.sticky.js"></script>
+    <script src="./static/js/jquery.magnific-popup.js"></script>
+
+    <!-- contact js -->
+    <script src="./static/js/contact.js"></script>
+    <script src="./static/js/jquery.form.js"></script>
+    <script src="./static/js/jquery.validate.min.js"></script>
+    <script src="./static/js/mail-script.js"></script>
+    <script src="./static/js/jquery.ajaxchimp.min.js"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="./static/js/plugins.js"></script>
+    <script src="./static/js/main.js"></script>
+
+</body>
+
 </html>

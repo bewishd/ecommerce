@@ -140,13 +140,11 @@ def admin_add_product_view(request):
         return HttpResponseRedirect('admin-products')
     return render(request,'ecom/admin_add_products.html',{'productForm':productForm})
 
-
 @login_required(login_url='adminlogin')
 def delete_product_view(request,pk):
     product=models.Product.objects.get(id=pk)
     product.delete()
     return redirect('admin-products')
-
 
 @login_required(login_url='adminlogin')
 def update_product_view(request,pk):
@@ -159,6 +157,37 @@ def update_product_view(request,pk):
             return redirect('admin-products')
     return render(request,'ecom/admin_update_product.html',{'productForm':productForm})
 
+@login_required(login_url='adminlogin')
+def admin_sellers_view(request):
+    sellers=models.Seller.objects.all()
+    return render(request,'ecom/admin_sellers.html',{'sellers':sellers})
+
+@login_required(login_url='adminlogin')
+def admin_add_seller_view(request):
+    sellerForm=forms.SellerForm()
+    if request.method=='POST':
+        sellerForm=forms.SellerForm(request.POST, request.FILES)
+        if sellerForm.is_valid():
+            sellerForm.save()
+        return HttpResponseRedirect('admin-sellers')
+    return render(request,'ecom/admin_add_sellers.html',{'sellerForm':sellerForm})
+    
+@login_required(login_url='adminlogin')
+def update_seller_view(request,pk):
+    seller=models.Seller.objects.get(id=pk)
+    sellerForm=forms.SellerForm(instance=seller)
+    if request.method=='POST':
+        sellerForm=forms.SellerForm(request.POST,request.FILES,instance=seller)
+        if sellerForm.is_valid():
+            sellerForm.save()
+            return redirect('admin-sellers')
+    return render(request,'ecom/admin_update_seller.html',{'sellerForm':sellerForm})
+
+@login_required(login_url='adminlogin')
+def delete_seller_view(request,pk):
+    seller=models.Seller.objects.get(id=pk)
+    seller.delete()
+    return redirect('admin-sellers')
 
 @login_required(login_url='adminlogin')
 def admin_view_booking_view(request):
