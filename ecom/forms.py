@@ -20,12 +20,13 @@ class SellerForm(forms.ModelForm):
 class CustomerForm(forms.ModelForm):
     class Meta:
         model=models.Customer
-        fields=['address','mobile']
+        fields=['address','mobile','pincode']
 
 class ProductForm(forms.ModelForm):
     class Meta:
         model=models.Product
         fields=['name','price','description','product_image','fabric','product_category','sub_category','size','quantity','brand','seller']
+        
 #address of shipment
 class AddressForm(forms.Form):
     Email = forms.EmailField()

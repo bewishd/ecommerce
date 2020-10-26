@@ -1,117 +1,188 @@
-{% extends 'ecom/homebase.html' %}
+<!doctype html>
+<html lang="zxx">
 {% load static %}
-{% block content %}
-
-
 <head>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<style media="screen">
-  .button {
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #f4511e;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 28px;
-  padding: 20px;
-  width: 200px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Projectables - My Cart </title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="shortcut icon" type="image/x-icon" href="static/img/favicon.ico">
 
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-.button2 {
-  background-color: white;
-  color: black;
-  border: 2px solid #008CBA;
-}
-
-.button2:hover {
-  background-color: #008CBA;
-  color: white;
-}
-
-</style>
+  <!-- CSS here -->
+      <link rel="stylesheet" href="static/css/bootstrap.min.css">
+      <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+      <!-- <link rel="stylesheet" href="static/css/flaticon.css"> -->
+      <link rel="stylesheet" href="static/css/slicknav.css">
+      <link rel="stylesheet" href="static/css/animate.min.css">
+      <link rel="stylesheet" href="static/css/magnific-popup.css">
+      <link rel="stylesheet" href="static/css/fontawesome-all.min.css">
+      <link rel="stylesheet" href="static/css/themify-icons.css">
+      <link rel="stylesheet" href="static/css/slick.css">
+      <link rel="stylesheet" href="static/css/nice-select.css">
+      <link rel="stylesheet" href="static/css/style.css"> 
+      <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
+      <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+      <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </head>
 
-<br><br><br><br>
+<body>
 
-<div class="container">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h6 style="text-align:center;" class="panel-title">My Cart</h6>
+  <header>
+    <!-- Header Start -->
+  {% include 'ecom/navbar.html' %}
+    <!-- Header End -->
+  </header>
+
+  <!-- slider Area Start-->
+  <div class="slider-area ">
+    <!-- Mobile Menu -->
+    <div class="single-slider slider-height2 d-flex align-items-center" data-background="static/img/hero/category.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center">
+                        <h2>Shopping Cart</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <table class="table table-hover" id="dev-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Image</th>
-          <th>Price</th>
-          <th>Description</th>
-          <th>Remove From Cart</th>
-
-        </tr>
-      </thead>
-      {% for p in products %}
-  {% if p %}
-
-      <tr>
-        <td> {{p.name}}</td>
-        <td> <img src="{% static p.product_image.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
-        <td>{{p.price}}</td>
-        <td>{{p.description}}</td>
-
-        <td><a class="btn btn-danger btn-xs" href="{% url 'remove-from-cart' p.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
-
-      </tr>
-      {%else%}
-      <br><br><br>
-      <h1>no products</h1>
-      {% endif %}
-      {% endfor %}
-    </table>
   </div>
-</div>
-<br><br><br>
-<div style="text-align: center;">
-  <button class="button button2">Total {{total}}</button>
-  <a href="/customer-address"><button class="button" ><span>Purchase </span></button></a>
-</div>
+  <!-- slider Area End-->
 
+  <!--================Cart Area =================-->
+  <section class="cart_area section_padding">
+    <div class="container">
+      <div class="cart_inner">
+        <div class="table-responsive">
+          <h1 style="text-align:center;" class="panel-title">My Cart</h1>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Name</th>
+              
+              <th>Description</th>
+              <th>Remove From Cart</th>
+              <th>Price</th>
+    
+            </tr>
+            
+          </thead>
+          {% for p in products %}
+      {% if p %}
+          <!-- console.log({{p.id}}) -->
+          <tr>
+            <td> <img src="{% static p.product_image.url %}" alt="Profile Pic" height="60px" width="60px" /></td>
+            <td> {{p.name}}</td>
+            
+            <td>{{p.description}}</td>
+            <td><a class="btn" href="#" onclick=removefromcart({{p.id}})><span class="glyphicon glyphicon-trash"></span></a></td>
+            <td>Rs.   {{p.price}}</td>
+            
+          </tr>
+          {%else%}
+          <br><br><br>
+          <h1>no products</h1>
+          {% endif %}
+          {% endfor %}
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+              <h5><b>Subtotal</b></h5>
+            </td>
+            <td>
+              <h5>Rs. {{total}}</h5>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+              <h5><b>Shipping</b></h5>
+            </td>
+            <td>
+              <h5>Rs. 0</h5>
+            </td>
+          </tr>
+        </table>
+        <div class="checkout_btn_inner float-right">
+          <a class="btn_1" href="#">Continue Shopping</a>
+          <a class="btn_1 checkout_btn_1" href="#">Proceed to checkout</a>
+        </div>
+      </div>
+    </div>
+    <br><br><br>
+    
+  </section>
+  <!--================End Cart Area =================-->
 
-<br><br><br><br><br>
-<!--
-developed By : sumit kumar
-facebook : fb.com/sumit.luv
-youtube : youtube.com/lazycoders
--->
-{% endblock content %}
+{% include 'ecom/footer.html' %}
+
+<!-- JS here -->
+<script type="text/javascript">
+  function removefromcart(id){
+    var numsid = id;
+    var serializedData = $(this).serialize();
+    $.ajax({
+        type: 'GET',
+        url: "remove-from-cart/"+ numsid,
+        data: {serializedData},
+        success: function(response){
+            console.log(response)
+        },
+        error : function(response){
+            console.log(response)
+          }
+    });
+}
+</script>
+
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="./static/js/vendor/modernizr-3.5.0.min.js"></script>
+
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="./static/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="./static/js/popper.min.js"></script>
+    <script src="./static/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="./static/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="./static/js/owl.carousel.min.js"></script>
+    <script src="./static/js/slick.min.js"></script>
+
+    <!-- One Page, Animated-HeadLin -->
+    <script src="./static/js/wow.min.js"></script>
+    <script src="./static/js/animated.headline.js"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="./static/js/jquery.scrollUp.min.js"></script>
+    <script src="./static/js/jquery.nice-select.min.js"></script>
+    <script src="./static/js/jquery.sticky.js"></script>
+    <script src="./static/js/jquery.magnific-popup.js"></script>
+
+    <!-- contact js -->
+    <script src="./static/js/contact.js"></script>
+    <script src="./static/js/jquery.form.js"></script>
+    <script src="./static/js/jquery.validate.min.js"></script>
+    <script src="./static/js/mail-script.js"></script>
+    <script src="./static/js/jquery.ajaxchimp.min.js"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="./static/js/plugins.js"></script>
+    <script src="./static/js/main.js"></script>
+</body>
+
+</html>

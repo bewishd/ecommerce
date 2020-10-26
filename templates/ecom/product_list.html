@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zxx">
+{% load static %}
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Projectables - All Projects</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="static/img/favicon.ico">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/css/flaticon.css">
+    <link rel="stylesheet" href="static/css/slicknav.css">
+    <link rel="stylesheet" href="static/css/animate.min.css">
+    <link rel="stylesheet" href="static/css/magnific-popup.css">
+    <link rel="stylesheet" href="static/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="static/css/themify-icons.css">
+    <link rel="stylesheet" href="static/css/slick.css">
+    <link rel="stylesheet" href="static/css/nice-select.css">
+    <link rel="stylesheet" href="static/css/style.css">
+
+</head>
+
+<body>
+
+    <!-- Header Start -->
+    {% include 'ecom/navbar.html' %}
+    <!-- Header End -->
+    <!-- product list part start-->
+    <section class="product_list">
+        <div class="container-fluid pl-150">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="product_sidebar">
+                        <div class="single_sedebar">
+                            <form action="/" method="post">
+                                <input type="text" name="search" placeholder="search">
+                                <i class="ti-search"></i>
+                            </form>
+                        </div>
+                        <div class="single_sedebar">
+                            <div class="select_option">
+                                <div class="select_option_list">Category <i class="right fas fa-caret-down"></i> </div>
+                                <div class="select_option_dropdown">
+                                    <p><a href="#">Type 1</a></p>
+                                    <p><a href="#">Type 2</a></p>
+                                    <p><a href="#">Type 3</a></p>
+                                    <p><a href="#">Type 4</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_sedebar">
+                            <div class="select_option">
+                                <div class="select_option_list">Type <i class="right fas fa-caret-down"></i> </div>
+                                <div class="select_option_dropdown">
+                                    <p><a href="#">Type 1</a></p>
+                                    <p><a href="#">Type 2</a></p>
+                                    <p><a href="#">Type 3</a></p>
+                                    <p><a href="#">Type 4</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="product_list">
+                        {%if products%}
+                        <div class="row">
+
+                            {% for p in products %}
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="single_product_item shadow-sm p-3 mb-5 bg-white rounded" style="padding: 5px;">
+
+                                    <!-- D:\gith\DBMS\static\img\product\59.jpg -->
+                                    <img src="{% static p.product_image.url %}" alt="" class="img-fluid">
+                                    <h3 style="color: black;"> <a href="#">{{p.name}}</a> </h3>
+                                    <p>Rs. {{ p.price }}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        <div class="load_more_btn text-center">
+                            <a href="#" class="btn_3">Load More</a>
+                        </div>
+                    </div>
+                </div>
+                <catX></catX>
+            </div>
+        </div>
+    </section>
+    <!-- product list part end-->
+
+    <!-- Footer Start-->
+    {% include 'ecom/footer.html' %}
+
+    <!-- Footer End-->
+
+    <!-- JS here -->
+    <script>
+        $(document).ready(function() {
+                    // executes when HTML-Document is loaded and DOM is ready
+                    console.log("document is ready");
+
+
+                    $("single_product_item").hover(
+                        function() {
+                            $(this).addClass('shadow-lg').css('cursor', 'pointer');
+                        },
+                        function() {
+                            $(this).removeClass('shadow-lg');
+                        }
+                    );
+    </script>
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="./static/js/vendor/modernizr-3.5.0.min.js"></script>
+
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="./static/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="./static/js/popper.min.js"></script>
+    <script src="./static/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="./static/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="./static/js/owl.carousel.min.js"></script>
+    <script src="./static/js/slick.min.js"></script>
+
+    <!-- One Page, Animated-HeadLin -->
+    <script src="./static/js/wow.min.js"></script>
+    <script src="./static/js/animated.headline.js"></script>
+    <script src="./static/js/jquery.magnific-popup.js"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="./static/js/jquery.scrollUp.min.js"></script>
+    <script src="./static/js/jquery.nice-select.min.js"></script>
+    <script src="./static/js/jquery.sticky.js"></script>
+
+    <!-- contact js -->
+    <script src="./static/js/contact.js"></script>
+    <script src="./static/js/jquery.form.js"></script>
+    <script src="./static/js/jquery.validate.min.js"></script>
+    <script src="./static/js/mail-script.js"></script>
+    <script src="./static/js/jquery.ajaxchimp.min.js"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="./static/js/plugins.js"></script>
+    <script src="./static/js/main.js"></script>
+
+    <!-- swiper js -->
+    <script src="./static/js/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="./static/js/mixitup.min.js"></script>
+    <script src="./static/js/jquery.counterup.min.js"></script>
+    <script src="./static/js/waypoints.min.js"></script>
+
+
+</body>
+
+</html>

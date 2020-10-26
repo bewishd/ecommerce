@@ -6,6 +6,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required,user_passes_test
 from django.contrib import messages
 from django.conf import settings
+from django.db.models import Q
 
 def home_view(request):
     products=models.Product.objects.all()
@@ -125,7 +126,9 @@ def update_customer_view(request,pk):
 # admin view the product
 @login_required(login_url='adminlogin')
 def admin_products_view(request):
+
     products=models.Product.objects.all()
+    print(products[0].product_image)
     return render(request,'ecom/admin_products.html',{'products':products})
 
 
@@ -136,6 +139,7 @@ def admin_add_product_view(request):
     if request.method=='POST':
         productForm=forms.ProductForm(request.POST, request.FILES)
         if productForm.is_valid():
+            print(productForm.is_valid())
             productForm.save()
         return HttpResponseRedirect('admin-products')
     return render(request,'ecom/admin_add_products.html',{'productForm':productForm})
@@ -234,8 +238,9 @@ def view_feedback_view(request):
 #---------------------------------------------------------------------------------
 def search_view(request):
     # whatever user write in search box we get in query
-    query = request.GET['query']
-    products=models.Product.objects.all().filter(name__icontains=query)
+    query = request.GET.get('search',None)
+    print(query)
+    products=models.Product.objects.all().filter(Q(name__icontains=query) or Q(description_icontains=query))
     if 'product_ids' in request.COOKIES:
         product_ids = request.COOKIES['product_ids']
         counter=product_ids.split('|')
@@ -247,8 +252,8 @@ def search_view(request):
     word="Searched Result :"
 
     if request.user.is_authenticated:
-        return render(request,'ecom/customer_home.html',{'products':products,'word':word,'product_count_in_cart':product_count_in_cart})
-    return render(request,'ecom/index.html',{'products':products,'word':word,'product_count_in_cart':product_count_in_cart})
+        return render(request,'ecom/product_list.html',{'products':products,'word':word,'product_count_in_cart':product_count_in_cart})
+    return render(request,'ecom/product_list.html',{'products':products,'word':word,'product_count_in_cart':product_count_in_cart})
 
 
 # any one can add product to cart, no need of signin
@@ -302,9 +307,9 @@ def cart_view(request):
             product_id_in_cart=product_ids.split('|')
             products=models.Product.objects.all().filter(id__in = product_id_in_cart)
 
-            #for total price shown in cart
             for p in products:
                 total=total+p.price
+    print(products[0].product_image.url)
     return render(request,'ecom/cart.html',{'products':products,'total':total,'product_count_in_cart':product_count_in_cart})
 
 
@@ -340,6 +345,7 @@ def remove_from_cart_view(request,pk):
         if value=="":
             response.delete_cookie('product_ids')
         response.set_cookie('product_ids',value)
+        print(response)
         return response
 
 
@@ -354,7 +360,7 @@ def send_feedback_view(request):
 
 
 #---------------------------------------------------------------------------------
-#------------------------ CUSTOMER RELATED VIEWS START ------------------------------
+#------------------------ CUSTOMER RELATED VIEWS START ---------------------------
 #---------------------------------------------------------------------------------
 @login_required(login_url='customerlogin')
 @user_passes_test(is_customer)

@@ -1,71 +1,79 @@
 <html>
+
 <head>
-    
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
+
 <body>
     <header>
-    <!-- Header Start -->
-   <div class="header-area">
-        <div class="main-header ">
-           
-           <div class="header-bottom  header-sticky">
-                <div class="container-fluid">
-                    <div class="row align-items-center">
-                        <!-- Logo -->
-                        <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
-                            <div class="logo">
-                              <a href="customer-home"><img src="static/img/logo/logo.png" alt=""></a>
+        <!-- Header Start -->
+        <div class="header-area">
+            <div class="main-header ">
+
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
+                                <div class="logo">
+                                    <a href="customer-home"><img src="static/img/logo/logo.png" alt="" width="200%" height="200%"></a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-8 col-md-7 col-sm-5">
-                            <!-- Main-menu -->
-                            <div class="main-menu f-right d-none d-lg-block">
-                                <nav>
-                                    <ul id="navigation">
-                                        <li><a href="index">Home</a></li>
-                                        <li><a href="Catagori">Category</a></li>
-                                        <li><a href="customer-home"> Product list</a></li>
-                                        <li><a href="contactus">Contact</a></li>
-                                        <li><a href="aboutus">About Us</a></li>
-                                    </ul>
-                                </nav>
+                            <div class="col-xl-5 col-lg-8 col-md-7 col-sm-5">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="index">Home</a></li>
+                                            <li><a href="Catagori">Category</a></li>
+                                            <li><a href="customer-home"> Product list</a></li>
+                                            <li><a href="contactus">Contact</a></li>
+                                            <li><a href="aboutus">About Us</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
-                            <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
-                                <li class="d-none d-xl-block">
-                                    <div class="form-box f-right ">
-                                        <form action="/" method="post">
-                                            <input type="text" name="search" placeholder="search">
-                                            </form>                                            <div class="search-icon">
-                                            <i class="fas fa-search special-tag"></i>
+                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-3 fix-card">
+                                <ul class="header-right f-right d-none d-lg-block justify-content-between">
+                                    <li class="d-none d-xl-block">
+                                        <div class="form-box f-right ">
+                                            <form action="{% url 'search' %}" method="get">
+                                                <input type="text" name="search" placeholder="Search for Products, Brands and more" name="query" id="query">
+                                            </form>
+                                            <div class="search-icon">
+                                                <i class="fas fa-search special-tag"></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                 </li>
-                                <li class=" d-none d-xl-block">
-                                    <div class="favorit-items">
-                                        <i class="far fa-heart"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="shopping-card">
-                                        <a href="cart"><i class="fas fa-shopping-cart"></i></a>
-                                   </div>
-                                </li>
-                               <li class="d-none d-lg-block"> <a href="customerlogin" class="btn header-btn">Sign in</a></li>
-                               <li class="d-none d-lg-block"> <a href="adminlogin" class="btn header-btn">Admin</a></li>
-                            </ul>
-                        </div>
-                        <!-- Mobile Menu -->
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
+                                    </li>
+                                    <li class=" d-none d-xl-block">
+                                        <div class="favorit-items">
+                                            <i class="far fa-heart"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="shopping-card">
+                                            <a href="cart"><i class="fas fa-shopping-cart"></i></a>
+                                        </div>
+                                    </li>
+                                    <li class="d-none d-lg-block"> <a href="customerlogin" class="btn header-btn">Sign in</a></li>
+                                    <li class="d-none d-lg-block"> <a href="adminlogin" class="btn header-btn">Admin</a></li>
+                                </ul>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-           </div>
+            </div>
         </div>
-   </div>
-   </header>
+    </header>
     <!-- Header End -->
 </body>
+
 </html>
