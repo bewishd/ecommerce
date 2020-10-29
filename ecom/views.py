@@ -8,6 +8,10 @@ from django.contrib import messages
 from django.conf import settings
 from django.db.models import Q
 
+from functools import reduce
+from operator import or_
+
+
 def home_view(request):
     products=models.Product.objects.all()
     if 'product_ids' in request.COOKIES:
@@ -255,35 +259,83 @@ def search_view(request):
         return render(request,'ecom/product_list.html',{'products':products,'word':word,'product_count_in_cart':product_count_in_cart})
     return render(request,'ecom/product_list.html',{'products':products,'word':word,'product_count_in_cart':product_count_in_cart})
 
+def search_by_filter(request,query=None, category=None, price=None, size=None):
+    print(query)
+    products=models.Product.objects.all().filter(Q(name__icontains=query) or Q(description_icontains=query))
+    filters = []
+    if price!="all":
+        print(price)
+        prar = price.split('&')
+        for ran in prar:
+            chota,bada = ran.split('to')
+            filters.append(">"+chota+" & <"+ bada)
+        condition = reduce(or_, [Q(price__range = (ran.split('to')[0], ran.split('to')[1])) for ran in prar])
+        products = products.filter(condition)  
+    if category !="all":
+        products = products.filter(sub_category= category)
+    
+    if size != "all":
+        sizear = size.split('&')
+        for q in sizear:
+            filters.append(q)
+        condition = reduce(or_,[Q(size=q) for q in sizear])
+        products = products.filter(condition)
+    # if fabric!="all":
+    #     far = os.split('&')
+    #     for q in far:
+    #         filters.append(q)
+    #     condition = reduce(or_,[Q(fabric_icontains=q) for q in far])
+    #     products = products.filter(condition)
 
-# any one can add product to cart, no need of signin
-def add_to_cart_view(request,pk):
-    products=models.Product.objects.all()
-
-    #for cart counter, fetching products ids added by customer from cookies
     if 'product_ids' in request.COOKIES:
         product_ids = request.COOKIES['product_ids']
         counter=product_ids.split('|')
         product_count_in_cart=len(set(counter))
     else:
-        product_count_in_cart=1
+        product_count_in_cart=0
 
-    response = render(request, 'ecom/index.html',{'products':products,'product_count_in_cart':product_count_in_cart})
+    # word variable will be shown in html when user click on search button
+    word="Searched Result :"
 
-    #adding product id to cookies
-    if 'product_ids' in request.COOKIES:
-        product_ids = request.COOKIES['product_ids']
-        if product_ids=="":
-            product_ids=str(pk)
-        else:
-            product_ids=product_ids+"|"+str(pk)
-        response.set_cookie('product_ids', product_ids)
+    if request.user.is_authenticated:
+        return render(request,'ecom/product_list.html',{'products':products,'word':word,'product_count_in_cart':product_count_in_cart})
+    return render(request,'ecom/product_list.html',{'products':products,'word':word,'product_count_in_cart':product_count_in_cart})
+
+
+
+# any one can add product to cart, no need of signin
+def add_to_cart_view(request,pk):
+    product=models.Product.get(pk=pk)
+    if request.user.is_authenticated:
+        order_qs = models.Cart.obejcts.filter(user = request.user.customer)
+        if order_qs.exists():
+            order = order_qs[0]
+            # if order.orderitems.filter(Product=pk).exists():
+                
+
     else:
-        response.set_cookie('product_ids', pk)
+        if 'product_ids' in request.COOKIES:
+            product_ids = request.COOKIES['product_ids']
+            counter=product_ids.split('|')
+            product_count_in_cart=len(set(counter))
+        else:
+            product_count_in_cart=1
 
-    product=models.Product.objects.get(id=pk)
-    messages.info(request, product.name + ' added to cart successfully!')
+        response = render(request, 'ecom/index.html',{'products':products,'product_count_in_cart':product_count_in_cart})
 
+        #adding product id to cookies
+        if 'product_ids' in request.COOKIES:
+            product_ids = request.COOKIES['product_ids']
+            if product_ids=="":
+                product_ids=str(pk)
+            else:
+                product_ids=product_ids+"|"+str(pk)
+            response.set_cookie('product_ids', product_ids)
+        else:
+            response.set_cookie('product_ids', pk)
+
+        product=models.Product.objects.get(id=pk)
+        messages.info(request, product.name + ' added to cart successfully!')
     return response
 
 

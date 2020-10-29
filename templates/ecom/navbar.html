@@ -20,7 +20,7 @@
                             <!-- Logo -->
                             <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
                                 <div class="logo">
-                                    <a href="customer-home"><img src="static/img/logo/logo.png" alt="" width="200%" height="200%"></a>
+                                    <a href="customer-home"><img src="/static/img/logo/logo.png" alt="" width="200%" height="200%"></a>
                                 </div>
                             </div>
                             <div class="col-xl-5 col-lg-8 col-md-7 col-sm-5">
@@ -28,11 +28,11 @@
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="index">Home</a></li>
+                                            <li><a href="{% url 'index' %}">Home</a></li>
                                             <li><a href="Catagori">Category</a></li>
-                                            <li><a href="customer-home"> Product list</a></li>
-                                            <li><a href="contactus">Contact</a></li>
-                                            <li><a href="aboutus">About Us</a></li>
+                                            <li><a href="{% url 'customer-home' %}"> Product list</a></li>
+                                            <li><a href="{% url 'contactus' %}">Contact</a></li>
+                                            <li><a href="{% url 'aboutus' %}">About Us</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -49,18 +49,13 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class=" d-none d-xl-block">
-                                        <div class="favorit-items">
-                                            <i class="far fa-heart"></i>
-                                        </div>
-                                    </li>
                                     <li>
                                         <div class="shopping-card">
-                                            <a href="cart"><i class="fas fa-shopping-cart"></i></a>
+                                            <a href="{% url 'cart' %}"><i class="fas fa-shopping-cart"></i></a>
                                         </div>
                                     </li>
-                                    <li class="d-none d-lg-block"> <a href="customerlogin" class="btn header-btn">Sign in</a></li>
-                                    <li class="d-none d-lg-block"> <a href="adminlogin" class="btn header-btn">Admin</a></li>
+                                    <li class="d-none d-lg-block"> <a href="{% url 'customerlogin' %}" class="btn header-btn">Sign in</a></li>
+                                    <!-- <li class="d-none d-lg-block"> <a href="{% url 'adminlogin' %}" class="btn header-btn">Admin</a></li> -->
                                 </ul>
                             </div>
                             <!-- Mobile Menu -->

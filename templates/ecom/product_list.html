@@ -10,20 +10,20 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="static/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico">
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="static/css/flaticon.css">
-    <link rel="stylesheet" href="static/css/slicknav.css">
-    <link rel="stylesheet" href="static/css/animate.min.css">
-    <link rel="stylesheet" href="static/css/magnific-popup.css">
-    <link rel="stylesheet" href="static/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="static/css/themify-icons.css">
-    <link rel="stylesheet" href="static/css/slick.css">
-    <link rel="stylesheet" href="static/css/nice-select.css">
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slick.css'%}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
 
@@ -46,24 +46,66 @@
                         </div>
                         <div class="single_sedebar">
                             <div class="select_option">
-                                <div class="select_option_list">Category <i class="right fas fa-caret-down"></i> </div>
+                                <div class="select_option_list">Category<i class="right fas fa-caret-down"></i> </div>
                                 <div class="select_option_dropdown">
-                                    <p><a href="#">Type 1</a></p>
-                                    <p><a href="#">Type 2</a></p>
-                                    <p><a href="#">Type 3</a></p>
-                                    <p><a href="#">Type 4</a></p>
+                                    <p><a><input id="indian" class="checkbox" type="checkbox">Indian & Fusion Wear</a></p>
+                                    <p><a><input id="western" class="checkbox" type="checkbox">Western Wear</a></p>
+                                    <p><a><input id="jewellery" class="checkbox" type="checkbox">Jewellery</a></p>
+                                    <p><a><input id="accessories" class="checkbox" type="checkbox">Accessories</a></p>
                                 </div>
                             </div>
                         </div>
+                        <!-- <div class="single_sedebar">
+                            <div class="select_option">
+                                <div class="select_option_list">Sub Category<i class="right fas fa-caret-down"></i> </div>
+                                <div class="select_option_dropdown">
+                                    <p><a><input id="kurtis" class="checkbox" type="checkbox">Kurtis, Tunics & Tops</a></p>
+                                    <p><a><input id="sarees" class="checkbox" type="checkbox">Sarees</a></p>
+                                    <p><a><input id="skirts" class="checkbox" type="checkbox">Skirts & Palazzos</a></p>
+                                    <p><a><input id="ethnic" class="checkbox" type="checkbox">Ethnic Dresses</a></p>
+                                    <p><a><input id="lehenga" class="checkbox" type="checkbox">Lehenga Cholis</a></p>
+                                    <p><a><input id="shawls" class="checkbox" type="checkbox">Dupattas & Shawls</a></p>
+                                    <p><a><input id="dresses" class="checkbox" type="checkbox">Dresses</a></p>
+                                    <p><a><input id="jumpsuits" class="checkbox" type="checkbox">Jumpsuits</a></p>
+                                    <p><a><input id="tops" class="checkbox" type="checkbox">Tops, T-Shirts & Shirts</a></p>
+                                    <p><a><input id="jeans" class="checkbox" type="checkbox">Jeans & Jeggings</a></p>
+                                    <p><a><input id="trouser" class="checkbox" type="checkbox">Trousers & Capris</a></p>
+                                    <p><a><input id="shorts" class="checkbox" type="checkbox">Shorts & Skirts</a></p>
+                                    <p><a><input id="shrugs" class="checkbox" type="checkbox">Shrugs</a></p>
+                                    <p><a><input id="sweaters" class="checkbox" type="checkbox">Sweaters & Sweatshirts</a></p>
+                                    <p><a><input id="jackets" class="checkbox" type="checkbox">Jackets & Coats</a></p>
+                                    <p><a><input id="blazers" class="checkbox" type="checkbox">Blazers & Waistcoats</a></p>
+                                    <p><a><input id="leggings" class="checkbox" type="checkbox">Leggings, Salwars & Churidars</a></p>
+                                    <p><a><input id="ponchoo" class="checkbox" type="checkbox">Ponchoo</a></p>
+                                </div>
+                            </div>
+                        </div> -->
                         <div class="single_sedebar">
                             <div class="select_option">
-                                <div class="select_option_list">Type <i class="right fas fa-caret-down"></i> </div>
+                                <div class="select_option_list">Sizes<i class="right fas fa-caret-down"></i> </div>
                                 <div class="select_option_dropdown">
-                                    <p><a href="#">Type 1</a></p>
-                                    <p><a href="#">Type 2</a></p>
-                                    <p><a href="#">Type 3</a></p>
-                                    <p><a href="#">Type 4</a></p>
+                                    <p><a><input id="S" class="checkbox" type="checkbox">S/XS</a></p>
+                                    <p><a><input id="M" class="checkbox" type="checkbox">M</a></p>
+                                    <p><a><input id="L" class="checkbox" type="checkbox">L</a></p>
+                                    <p><a><input id="XL" class="checkbox" type="checkbox">XL/Plus</a></p>
                                 </div>
+                            </div>
+                        </div>
+                        
+                        <div class="single_sedebar">
+                            <div class="select_option">
+                                <div class="select_option_list">Price<i class="right fas fa-caret-down"></i> </div>
+                                <div class="select_option_dropdown">
+                                    <p><a><input id="1k" class="checkbox" type="checkbox">₹0 to ₹1000</a></p>
+                                    <p><a><input id="3k" class="checkbox" type="checkbox">₹1000+ to ₹3000</a></p>
+                                    <p><a><input id="5k" class="checkbox" type="checkbox">₹3000+ to ₹5000</a></p>
+                                    <p><a><input id="10k" class="checkbox" type="checkbox">₹5000+ to ₹10000</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="btn header-btn">
+                                <a id="submitwa">Filter</a>
                             </div>
                         </div>
                     </div>
@@ -101,7 +143,8 @@
     {% include 'ecom/footer.html' %}
 
     <!-- Footer End-->
-
+</body>
+</html>
     <!-- JS here -->
     <script>
         $(document).ready(function() {
@@ -118,49 +161,278 @@
                         }
                     );
     </script>
+
+    <script>
+    let price0 = document.getElementById("1k");
+    let price1 = document.getElementById("3k");
+    let price2 = document.getElementById("5k");
+    let price3 = document.getElementById("10k");
+
+    // let cotton = document.getElementById("cotton");
+    // let silk = document.getElementById("silk");
+    // let chiffon = document.getElementById("chiffon");
+    // let woolen = document.getElementById("woolen");
+    // let viscos = document.getElementById("viscos");
+    // let rayon = document.getElementById("rayon");
+    // let georegette = document.getElementById("georgette");
+    // let synthetic = document.getElementById("synthetic");
+
+    let small = document.getElementById("S");
+    let medium = document.getElementById("M");
+    let large = document.getElementById("L");
+    let extra = document.getElementById("XL");
+
+
+    // let kurtis = document.getElementById("kurtis");
+    // let sarees = document.getElementById("sarees");
+    // let ethnic = document.getElementById("ethnic");
+    // let lehenga = document.getElementById("lehenga");
+    // let shawls = document.getElementById("shawls");
+    // let dresses = document.getElementById("dresses");
+    // let jumpsuits = document.getElementById("jumpsuits");
+    // let tops = document.getElementById("tops");
+    // let jeans = document.getElementById("jeans");
+    // let trouser = document.getElementById("trouser");
+    // let shorts = document.getElementById("shorts");
+    // let shrugs = document.getElementById("shrugs");
+    // let sweaters = document.getElementById("sweaters");
+    // let jackets = document.getElementById("jackets");
+    // let blazers = document.getElementById("blazers");
+    // let leggings = document.getElementById("leggings");
+    // let ponchoo = document.getElementById("ponchoo");
+
+
+    let indian = document.getElementById("indian");
+    let western = document.getElementById("western");
+    let jewellery = document.getElementById("jewellery");
+    let accessories = document.getElementById("accessories");
+
+    // let bar = document.getElementById("val");
+    // let range = document.getElementsByClassName("uk-range")[0];
+
+
+    $(document).on("click touchend", "#submitwa", function () {
+        shipIt();
+    });
+
+
+    function priceHandler(prev="") {
+        if (prev === "all") {
+            prev = "";
+        }
+        let price = prev;
+        if(!price0.checked && prev === "" && !price1.checked && !price2.checked && !price3.checked) {
+            return "all";
+        }
+        if(price0.checked && !prev.includes("0to1000")) {
+            if(price !== "")
+                price += "&";
+            price += "0to1000";
+        }
+        if(price1.checked && !prev.includes("1000to3000")) {
+            if(price !== "")
+                price += "&";
+            price += "1000to3000";
+        }
+        if(price2.checked && !prev.includes("30000to5000")) {
+            if(price !== "")
+                price += "&";
+            price += "3000to5000";
+        }
+        if(price3.checked && !prev.includes("50000to10000")) {
+            if(price !== "")
+                price += "&";
+            price += "5000to10000";
+        }
+        return price;
+    }
+
+    /**
+     * @return {string}
+     */
+    function CategoryHandler(prev="") {
+        if (prev === "all") {
+            prev = "";
+        }
+        let os = prev;
+        if(!indian.checked && prev==="" && !western.checked && !accessories.checked && !jewellery.checked) {
+            return "all";
+        }
+        if(indian.checked && !prev.includes("Indian")) {
+            if(os !== "")
+                os += "&";
+            os += "Indian";
+        }
+        if(western.checked && !prev.includes("Western")) {
+            if(os !== "")
+                os += "&";
+            os += "Western";
+        }
+        if(jewellery.checked && !prev.includes("Jewellery")) {
+            if(os !== "")
+                os += "&";
+            os += "Jewellery";
+        }
+        if(accessories.checked && !prev.includes("Accessories")) {
+            if(os !== "")
+                os += "&";
+            os += "Accessories";
+        }
+        return os;
+    }
+
+    /**
+     * @return {string}
+     */
+    function sizeHandler(prev="") {
+        if (prev === "all") {
+            prev = "";
+        }
+        let band = prev;
+        if(!small.checked && !large.checked && !medium.checked && !extra.checked && prev==="") {
+            return "all";
+        }
+        if(small.checked && !prev.includes("S")) {
+            if(band !== "")
+                band += "&";
+            band += "S";
+        }
+        if(medium.checked && !prev.includes("M")) {
+            if(band !== "")
+                band += "&";
+            band += "M";
+        }
+        if(large.checked && !prev.includes("L")) {
+            if(band !== "")
+                band += "&";
+            band += "L";
+        }
+        if(extra.checked && !prev.includes("XL")) {
+            if(band !== "")
+                band += "&";
+            band += "XL";
+        }
+        return band;
+    }
+
+
+    function shipIt() {
+        if(document.URL.includes('search=')) {
+            query = document.URL.split("/");
+            console.log(query)
+            console.log(query.length)
+            let url = document.location.origin
+            if (query.length>4){
+                console.log("yahan hu")
+                search = query[3].split('=')
+                price = query[4].split('=')
+                category = query[5].split('=')
+                size = query[6].split('=')
+                url += "/search="+search[1]+'/price=';
+                url += priceHandler(price[1]) + "/category=" + CategoryHandler(category[1]) + "/size=" + sizeHandler(size[1]);
+            }
+            else{
+                search = query[3].split('=')
+                console.log(search)
+                url += "/search="+search[1]+'/price=';
+                url += priceHandler('') + "/category=" + CategoryHandler('') + "/size=" + sizeHandler('');
+            };
+            
+            window.location.replace(url);
+        }
+        else {
+            let url = document.location.origin + "/q=";
+            url += priceHandler() + "/" + OSHandler() + "/" + bandHandler() +"/" + range.value;
+            window.location.replace(url);
+        };
+    }
+
+    function showIt() {
+        bar.innerText = range.value + " GHz";
+    }
+
+    function backtrackPrice(prev) {
+        price0.checked = prev.includes("0to5000");
+        price1.checked = prev.includes("5000to10000");
+        price2.checked = prev.includes("10000to15000");
+    }
+
+    function backtrackOS(prev) {
+        android.checked = prev.includes("Android");
+        ios.checked = prev.includes("iOS");
+        symbian.checked = prev.includes("Symbian");
+        blackberry.checked = prev.includes("Blackberry");
+        wp.checked = prev.includes("Windows");
+    }
+
+    function backtrackData(prev) {
+        gsm.checked = prev.includes("GSM");
+        edge.checked = prev.includes("Edge");
+        tg.checked = prev.includes("3G");
+        fg.checked = prev.includes("4G");
+        wifi.checked = prev.includes("WiFi");
+        gprs.checked = prev.includes("GPRS");
+    }
+
+    function backtrack() {
+        if(document.URL !== document.location.origin + "/" && !document.URL.includes('search')) {
+            query = document.URL.split("=");
+            prev = query[1].split('/');
+            backtrackPrice(prev[0]);
+            backtrackOS(prev[1]);
+            backtrackData(prev[2]);
+        }
+    }
+
+    function searchIt() {
+        var q = document.getElementById('search').value;
+        let url = document.location.origin + "/search=";
+        url += q;
+        window.location.replace(url);
+        // {#console.log(url);#}
+    }
+    window.addEventListener('load', showIt);
+    window.addEventListener('load', backtrack);
+    </script>
+
     <!-- All JS Custom Plugins Link Here here -->
-    <script src="./static/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/static/js/vendor/modernizr-3.5.0.min.js"></script>
 
     <!-- Jquery, Popper, Bootstrap -->
-    <script src="./static/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="./static/js/popper.min.js"></script>
-    <script src="./static/js/bootstrap.min.js"></script>
+    <script src="/static/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/static/js/popper.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
     <!-- Jquery Mobile Menu -->
-    <script src="./static/js/jquery.slicknav.min.js"></script>
+    <script src="/static/js/jquery.slicknav.min.js"></script>
 
     <!-- Jquery Slick , Owl-Carousel Plugins -->
-    <script src="./static/js/owl.carousel.min.js"></script>
-    <script src="./static/js/slick.min.js"></script>
+    <script src="/static/js/owl.carousel.min.js"></script>
+    <script src="/static/js/slick.min.js"></script>
 
     <!-- One Page, Animated-HeadLin -->
-    <script src="./static/js/wow.min.js"></script>
-    <script src="./static/js/animated.headline.js"></script>
-    <script src="./static/js/jquery.magnific-popup.js"></script>
+    <script src="/static/js/wow.min.js"></script>
+    <script src="/static/js/animated.headline.js"></script>
+    <script src="/static/js/jquery.magnific-popup.js"></script>
 
     <!-- Scrollup, nice-select, sticky -->
-    <script src="./static/js/jquery.scrollUp.min.js"></script>
-    <script src="./static/js/jquery.nice-select.min.js"></script>
-    <script src="./static/js/jquery.sticky.js"></script>
+    <script src="/static/js/jquery.scrollUp.min.js"></script>
+    <script src="/static/js/jquery.nice-select.min.js"></script>
+    <script src="/static/js/jquery.sticky.js"></script>
 
     <!-- contact js -->
-    <script src="./static/js/contact.js"></script>
-    <script src="./static/js/jquery.form.js"></script>
-    <script src="./static/js/jquery.validate.min.js"></script>
-    <script src="./static/js/mail-script.js"></script>
-    <script src="./static/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/static/js/contact.js"></script>
+    <script src="/static/js/jquery.form.js"></script>
+    <script src="/static/js/jquery.validate.min.js"></script>
+    <script src="/static/js/mail-script.js"></script>
+    <script src="/static/js/jquery.ajaxchimp.min.js"></script>
 
     <!-- Jquery Plugins, main Jquery -->
-    <script src="./static/js/plugins.js"></script>
-    <script src="./static/js/main.js"></script>
+    <script src="/static/js/plugins.js"></script>
+    <script src="/static/js/main.js"></script>
 
     <!-- swiper js -->
-    <script src="./static/js/swiper.min.js"></script>
+    <script src="/static/js/swiper.min.js"></script>
     <!-- swiper js -->
-    <script src="./static/js/mixitup.min.js"></script>
-    <script src="./static/js/jquery.counterup.min.js"></script>
-    <script src="./static/js/waypoints.min.js"></script>
-
-
-</body>
-
-</html>
+    <script src="/static/js/mixitup.min.js"></script>
+    <script src="/static/js/jquery.counterup.min.js"></script>
+    <script src="/static/js/waypoints.min.js"></script>

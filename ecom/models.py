@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 class Customer(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE,unique=True)
     email = models.EmailField(max_length=254,unique=True)
-    address = models.CharField(max_length=40)
-    pincode = models.IntegerField()
+    address = models.CharField(max_length=150, null=False)
+    pincode = models.CharField(max_length=6)
     mobile = models.CharField(max_length=20,null=False)
 
     @property
@@ -17,8 +17,8 @@ class Customer(models.Model):
     def get_id(self):
         return self.user.id
 
-    def __str__(self):
-        return self.user.first_name
+    # def __str__(self):
+    #     return self.user.first_name
 
 class Orders(models.Model):
     STATUS =(
@@ -32,6 +32,9 @@ class Orders(models.Model):
     order_date= models.DateField(auto_now_add=True,null=True)
     tracking_id = models.CharField(max_length=256,default=None)
     transaction_id = models.CharField(max_length=50,null=False)
+    address = models.CharField(max_length = 150, null= False)
+    pincode = models.CharField(max_length=6, null=False)
+    mobile = models.CharField(max_length=20,null=False)
     status=models.CharField(max_length=50,null=True,choices=STATUS)
 
 class Feedback(models.Model):
@@ -111,3 +114,19 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+class Cart(models.Model):
+    user = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+    purchased = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True)
+
+
+    def __str__(self):
+        return f'{self.quantity} of {self.item.name}'
+
+    def get_total(self):
+        total = self.item.price * self.quantity
+        floattotal = float("{0:.2f}".format(total))
+        return floattotal

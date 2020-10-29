@@ -11366,6 +11366,8 @@ input:focus {
     }
 }
 
+
+
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
     /* line 45, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/static/scss/_trending_items.scss */
     .single_product_item p {
@@ -11375,6 +11377,12 @@ input:focus {
 
 
 /* line 1, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/static/scss/_client_review.scss */
+.checkbox a {
+    display: block;
+    padding-right: 10px;
+    padding-left: 22px;
+    text-indent: -22px;
+  }
 
 .client_review {
     padding: 100px 0;
